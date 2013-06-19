@@ -91,6 +91,18 @@ ROOT::TBranchProxy::TBranchProxy(TBranchProxyDirector* boss, TBranchProxy *paren
    boss->Attach(this);
 }
 
+ROOT::TBranchProxy::TBranchProxy(TBranchProxyDirector* boss, TBranch* branch, const char* membername) :
+   fDirector(boss), fInitialized(false),  fBranchName(branch->GetName()), fParent(0),
+   fDataMember(membername), fIsMember(membername != 0 && membername[0]), fIsClone(false), fIsaPointer(false),
+   fClassName(""), fClass(0), fElement(0), fMemberOffset(0), fOffset(0),
+   fBranch(0), fBranchCount(0),
+   fLastTree(0), fRead(-1), fWhere(0),fCollection(0)
+{
+   // Constructor.
+
+   boss->Attach(this);
+}
+
 ROOT::TBranchProxy::~TBranchProxy()
 {
    // Typical Destructor
@@ -118,10 +130,10 @@ void ROOT::TBranchProxy::Print()
 {
    // Display the content of the object
 
-   cout << "fBranchName " << fBranchName << endl;
-   //cout << "fTree " << fDirector->fTree << endl;
-   cout << "fBranch " << fBranch << endl;
-   if (fBranchCount) cout << "fBranchCount " << fBranchCount << endl;
+   std::cout << "fBranchName " << fBranchName << std::endl;
+   //std::cout << "fTree " << fDirector->fTree << std::endl;
+   std::cout << "fBranch " << fBranch << std::endl;
+   if (fBranchCount) std::cout << "fBranchCount " << fBranchCount << std::endl;
 }
 
 Bool_t ROOT::TBranchProxy::Setup()
