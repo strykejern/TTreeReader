@@ -380,9 +380,7 @@ namespace ROOT {
          AddHeader( cl->GetCollectionProxy()->GetValueClass() );
       }
       Int_t stlType;
-      if (0 == strcmp(cl->GetName(),"string")) {
-         directive = "#include <string>\n";
-      } else if (cl->GetCollectionProxy() && (stlType=TClassEdit::IsSTLCont(cl->GetName()))) {
+      if (cl->GetCollectionProxy() && (stlType=TClassEdit::IsSTLCont(cl->GetName()))) {
          const char *what = "";
          switch(stlType)  {
             case TClassEdit::kVector:   what = "vector"; break;
