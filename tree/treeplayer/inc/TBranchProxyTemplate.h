@@ -45,8 +45,8 @@ namespace ROOT {
 
       void Print() {
          obj.Print();
-         std::cout << "fWhere " << obj.GetWhere() << std::endl;
-         if (obj.GetWhere()) std::cout << "address? " << (T*)obj.GetWhere() << std::endl;
+         cout << "fWhere " << obj.GetWhere() << endl;
+         if (obj.GetWhere()) cout << "address? " << (T*)obj.GetWhere() << endl;
       }
 
       T* GetPtr() {
@@ -71,8 +71,8 @@ namespace ROOT {
 
       void Print() {
          obj.Print();
-         std::cout << "obj.GetWhere() " << obj.GetWhere() << std::endl;
-         //if (obj.GetWhere()) std::cout << "value? " << *(T*)obj.GetWhere() << std::endl;
+         cout << "obj.GetWhere() " << obj.GetWhere() << endl;
+         //if (obj.GetWhere()) cout << "value? " << *(T*)obj.GetWhere() << endl;
       }
 
       TClaObjProxy() : obj() {};
@@ -113,8 +113,8 @@ namespace ROOT {
 
       void Print() {
          obj.Print();
-         std::cout << "obj.GetWhere() " << obj.GetWhere() << std::endl;
-         //if (obj.GetWhere()) std::cout << "value? " << *(T*)obj.GetWhere() << std::endl;
+         cout << "obj.GetWhere() " << obj.GetWhere() << endl;
+         //if (obj.GetWhere()) cout << "value? " << *(T*)obj.GetWhere() << endl;
       }
 
       TStlObjProxy() : obj() {};
